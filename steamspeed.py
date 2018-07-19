@@ -55,8 +55,8 @@ while True:
 			if verbose: print('Downloading ' + str(int(size/1024/1024)) + ' MB...')
 		elif 'download sources' in line:
 			# Identified download sources
-			sources,path,host = re.search(r'(\d+) download sources via "(/serverlist/\d+/\d+/)" from (.*)$', line).groups()
-			print(sources + ' download sources from http://' + host + path)
+			sources,proxies,path,host = re.search(r'(\d+) download sources and (\d+) caching proxies via "(/serverlist/\d+/\d+/)" from (.*)$', line).groups()
+			print(sources + ' download sources (and ' + proxies + ' caching proxies) from http://' + host + path)
 		elif 'Created download interface' in line:
 			# Adding new download source
 			host = re.search(r'host ([^\(]+)', line).group(1)
